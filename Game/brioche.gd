@@ -13,6 +13,10 @@ class_name Brioche
 func to_account_in_scoring() -> bool:
 	return self.accounted_in_scoring and not self.is_falling()
 	
+func scale_brioche(factor: float):
+	rigid_body_3d.scale = rigid_body_3d.scale * factor
+	
+	
 
 func is_falling() -> bool:
 	# Return true if the velocity on the Y-axis is less than the fall threshold (falling down)

@@ -3,7 +3,6 @@ class_name ItemPath3D
 
 @onready var path_follow_3d: PathFollow3D = $PathFollow3D
 @export var progress_speed: float = 2  # Speed of the path following, adjusted based on delta time
-@onready var bread_list: Node3D = $"../BreadList"
 @onready var player: Player = $".."
 @onready var chute: AudioStreamPlayer = $"../AudioController/Chute"
 
@@ -14,6 +13,23 @@ func _physics_process(delta: float) -> void:
 	# Update progress based on delta time to ensure consistent movement regardless of frame rate
 	path_follow_3d.progress += progress_speed * delta
 	
+# Get the current spawner (the first child of path_follow_3d)
+func get_current_spawner() -> Brioche:
+	var path_follow = $PathFollow3D  # Assuming PathFollow3D is a child of the current node
+	if path_follow.get_child_count() > 0:
+		return path_follow.get_child(0)  # Return the first child
+	return null  # Return null if there are no children
+	
+# Change the current spawner by replacing the child of path_follow_3d with a new brioche
+func change_current_spawner(new_brioche: Brioche):
+	var path_follow = $PathFollow3D  # Assuming PathFollow3D is a child of the current node
+	
+	# Remove all current children from path_follow_3d
+	for child in path_follow.get_children():
+		child.queue_free()  # Remove the child nodes
+	
+	# Add new_brioche as a child to path_follow_3d
+	path_follow.add_child(new_brioche)
 
 	
 func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):

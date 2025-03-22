@@ -7,6 +7,9 @@ class_name Game
 @onready var game_timer: Timer = $GameTimer
 @onready var winners: Node = $Winners
 
+@onready var clocks: Node = $Clocks
+@onready var clockplayed : int = 0
+
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
@@ -39,7 +42,17 @@ func get_max_scoring_player_number():
 	
 	return max_scoring_player_number
 
-
+func _process(delta: float) -> void:
+	if game_timer.time_left < 30.0 and clockplayed == 0: 
+		var clocklist = clocks.get_children()
+		print("time left 30")
+		clocklist[0].play()
+		clockplayed +=1
+	if game_timer.time_left < 15.0 and clockplayed ==1:
+		var clocklist = clocks.get_children()
+		print("time left 15")
+		clockplayed +=1
+		clocklist[1].play()
 
 func _on_seconds_timer_timeout() -> void:
 	timer_label.text = str(int(game_timer.time_left))

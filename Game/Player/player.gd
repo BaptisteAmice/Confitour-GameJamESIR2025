@@ -14,6 +14,9 @@ class_name Player
 @onready var temp_patch_coord: float = 2.8
 @onready var score: float = 0
 
+@onready var current_power_up: String = "shrink"
+
+
 func _ready(): 
 	Global.players.push_front(self)
 	update_score()
@@ -46,8 +49,24 @@ func _physics_process(delta: float) -> void:
 		#print(self.key_drop)
 		#print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
-		print("I HAVE DA POWER")
+		use_current_power_up()
+
 	update_score()
+	
+func give_power(power: String):
+	current_power_up = power
+	#todo update sprite
+	
+
+func use_current_power_up():
+	if current_power_up:
+		if current_power_up == "shrink":
+			print("shrink")
+			item_path_3d.get_current_spawner().scale_brioche(5)
+		else:
+			print("invalid power up")
+	else:
+			print("no power up")
 
 func get_highest_bread() -> float:
 	var max_y: float = -INF
