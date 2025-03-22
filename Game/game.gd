@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _on_game_timer_timeout() -> void:
 	var max_scoring_player_number = get_max_scoring_player_number()
+	print("winner is player ", str(max_scoring_player_number))
 	
 
 func get_max_scoring_player_number():
@@ -27,11 +28,15 @@ func get_max_scoring_player_number():
 	var max_scoring_player_number: int = 0
 	for player in Global.players:
 		player.update_score()
+		# Update the max_score when a new higher score is found
 		if player.score > max_score:
+			max_score = player.score  # This line was missing in your code
 			max_scoring_player_number = player.player_number
+		print("player", player.player_number, "score", player.score)
+	
 	return max_scoring_player_number
+
 
 
 func _on_seconds_timer_timeout() -> void:
 	timer_label.text = str(int(game_timer.time_left))
-	print("str"+str(get_max_scoring_player_number()))

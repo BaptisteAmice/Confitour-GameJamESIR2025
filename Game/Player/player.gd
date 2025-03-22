@@ -11,10 +11,8 @@ class_name Player
 @onready var item_path_3d: ItemPath3D = $ItemPath3D
 @onready var bread_list: Node3D = $BreadList
 
-@onready var temp_patch_coord: float = 27
-@onready var score: float
-var first_bread_dropped = false
-
+@onready var temp_patch_coord: float = 2.8
+@onready var score: float = 0
 
 func _ready(): 
 	Global.players.push_front(self)
@@ -45,7 +43,6 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(self.key_drop):
 		item_path_3d.spawn_bread(self, self.player_number)
-		first_bread_dropped = true
 		#print(self.key_drop)
 		#print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
@@ -53,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	update_score()
 
 func get_highest_bread() -> float:
-	var max_y: float = 0
+	var max_y: float = -INF
 	for node in bread_list.get_children():
 		if node is Brioche and node.to_account_in_scoring() :
 			# Access the y position from the node's transform.origin
@@ -62,9 +59,9 @@ func get_highest_bread() -> float:
 	return max_y
 
 func update_score():
-	if first_bread_dropped:
-		self.score = get_highest_bread()
-		self.score_label.text = "Score: " + str(int(self.score*10 + temp_patch_coord))
+	if len(bread_list.get_children()) > 2:
+		self.score = (get_highest_bread() + temp_patch_coord) * 10
+		self.score_label.text = "Score: " + str(int(self.score))
 	else:
 		self.score = 0
 		self.score_label.text = "Score: 0"
