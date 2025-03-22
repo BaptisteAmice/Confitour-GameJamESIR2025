@@ -11,12 +11,14 @@ class_name Player
 @onready var item_path_3d: ItemPath3D = $ItemPath3D
 @onready var bread_list: Node3D = $BreadList
 
-
-@onready var score: float = 0
+@onready var temp_patch_coord: float = 27
+@onready var score: float
+var first_bread_dropped = false
 
 
 func _ready(): 
 	Global.players.push_front(self)
+	update_score()
 	
 	var current_player_number = Global.players.size()
 	player_number = current_player_number
@@ -43,6 +45,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(self.key_drop):
 		item_path_3d.spawn_bread(self, self.player_number)
+		first_bread_dropped = true
 		#print(self.key_drop)
 		#print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
@@ -59,9 +62,12 @@ func get_highest_bread() -> float:
 	return max_y
 
 func update_score():
-	self.score = get_highest_bread()
-	var temp_patch_coord = 27
-	self.score_label.text = "Score: " + str(int(self.score*10 + temp_patch_coord))
+	if first_bread_dropped:
+		self.score = get_highest_bread()
+		self.score_label.text = "Score: " + str(int(self.score*10 + temp_patch_coord))
+	else:
+		self.score = 0
+		self.score_label.text = "Score: 0"
 
 	
 	
