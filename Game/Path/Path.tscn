@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyfl14l7l3xye"]
 
 [ext_resource type="Script" uid="uid://dimam2nar814n" path="res://Game/Player/path_3d.gd" id="1_emjco"]
-[ext_resource type="PackedScene" uid="uid://dm1m1x1y22jrk" path="res://Game/Brioche.tscn" id="2_afsjt"]
+[ext_resource type="PackedScene" uid="uid://dg1b31jwhcxk" path="res://Game/Bodies/Brioche_confiture.tscn" id="2_emjco"]
 
 [node name="ItemPath3D" type="Path3D"]
 script = ExtResource("1_emjco")
@@ -9,5 +9,5 @@ script = ExtResource("1_emjco")
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 transform = Transform3D(-0.707059, 0.00624939, -0.707031, -2.32815e-10, 0.999903, 0.00883789, 0.707059, 0.00624939, -0.707031, 0, 0.005, 0)
 
-[node name="Brioche" parent="PathFollow3D" instance=ExtResource("2_afsjt")]
+[node name="BriocheConfiture" parent="PathFollow3D" instance=ExtResource("2_emjco")]
 collision_disabled = true
