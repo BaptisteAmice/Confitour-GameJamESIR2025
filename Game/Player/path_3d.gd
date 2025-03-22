@@ -8,6 +8,7 @@ class_name ItemPath3D
 @onready var chute: AudioStreamPlayer = $"../AudioController/Chute"
 
 const BRIOCHE = preload("res://Game/Brioche.tscn")
+const BRIOCHE_CONFITURE = preload("res://Game/Bodies/Brioche_confiture.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Update progress based on delta time to ensure consistent movement regardless of frame rate
@@ -16,8 +17,9 @@ func _physics_process(delta: float) -> void:
 
 	
 func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
-	# Duplicate the node
+	# Spawn the node
 	var new_object = BRIOCHE.instantiate()
+	#var new_object = BRIOCHE_CONFITURE.instantiate()
 
 	# Ensure the new object is inside the tree before setting global properties
 	new_parent.add_child(new_object)

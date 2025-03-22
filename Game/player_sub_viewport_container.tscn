@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp3t0plaiba3x"]
 
 [ext_resource type="Script" uid="uid://uwjc2y2li5cb" path="res://Game/player_sub_viewport_container.gd" id="1_2g1ut"]
-[ext_resource type="PackedScene" uid="uid://by1uf2wunyn3j" path="res://Background/player.tscn" id="1_wjk5t"]
+[ext_resource type="PackedScene" uid="uid://by1uf2wunyn3j" path="res://Game/Player/player.tscn" id="1_wjk5t"]
 
 [node name="PlayerSubViewportContainer" type="SubViewportContainer"]
 z_index = 1

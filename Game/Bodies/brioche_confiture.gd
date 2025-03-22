@@ -1,7 +1,8 @@
 extends Brioche
 class_name BriocheConfiture
 
-@onready var area_3d: Area3D = $Area3D
+@onready var area_3d: Area3D = $RigidBody3D/Area3D
+
 
 func change_gravity(gravity: float):
 	rigid_body_3d.gravity_scale = gravity
