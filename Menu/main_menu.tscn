@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://eoduuo6ntfvd"]
+
+[ext_resource type="Script" uid="uid://ckbkqgx5v7o2w" path="res://Menu/main_menu.gd" id="1_sla5p"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sla5p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 399.0
+offset_bottom = 63.0
+text = "PLAY"
+
+[node name="NBPLayerHSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 216.0
+min_value = 2.0
+max_value = 4.0
+value = 2.0
+
+[node name="PlayerNumberLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 171.0
+offset_right = 249.0
+offset_bottom = 194.0
+text = "2"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="value_changed" from="NBPLayerHSlider" to="." method="_on_nbp_layer_h_slider_value_changed"]

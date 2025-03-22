@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Confeature"
+run/main_scene="uid://p8cc8ghvrrli"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://GameController/global.gd"
 
 [rendering]
 
