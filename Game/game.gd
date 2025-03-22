@@ -19,8 +19,19 @@ func _ready() -> void:
 
 
 func _on_game_timer_timeout() -> void:
-	pass # Replace with function body.
+	var max_scoring_player_number = get_max_scoring_player_number()
+	
+
+func get_max_scoring_player_number():
+	var max_score: int = -INF
+	var max_scoring_player_number: int = 0
+	for player in Global.players:
+		player.update_score()
+		if player.score > max_score:
+			max_scoring_player_number = player.player_number
+	return max_scoring_player_number
 
 
 func _on_seconds_timer_timeout() -> void:
 	timer_label.text = str(int(game_timer.time_left))
+	print("str"+str(get_max_scoring_player_number()))

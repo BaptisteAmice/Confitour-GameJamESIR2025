@@ -31,4 +31,5 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	if rigid_body_3d.gravity_scale>0:
-		print(self.rigid_body_3d.transform.origin.y)
+		#print(self.rigid_body_3d.transform.origin.y)
+		pass

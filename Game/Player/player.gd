@@ -43,12 +43,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(self.key_drop):
 		item_path_3d.spawn_bread(self, self.player_number)
-		print(self.key_drop)
-		print(str(self.player_number) )
+		#print(self.key_drop)
+		#print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
 		print("I HAVE DA POWER")
-		
-	update_score(get_highest_bread())
+	update_score()
 
 func get_highest_bread() -> float:
 	var max_y: float = 0
@@ -59,10 +58,10 @@ func get_highest_bread() -> float:
 				max_y = node.rigid_body_3d.transform.origin.y  # Update the max_y if a higher y is found
 	return max_y
 
-func update_score(new_score: float):
-	self.score = new_score
+func update_score():
+	self.score = get_highest_bread()
 	var temp_patch_coord = 27
-	self.score_label.text = "Score: " + str(int(new_score*10 + temp_patch_coord))
+	self.score_label.text = "Score: " + str(int(self.score*10 + temp_patch_coord))
 
 	
 	
