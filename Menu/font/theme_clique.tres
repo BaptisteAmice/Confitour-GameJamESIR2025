@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=4 uid="uid://sye1v63jhbdb"]
 
-[ext_resource type="Texture2D" uid="uid://cpj24smkm2a2o" path="res://Assets/menu_image/menu_image/tartine_jam.png" id="1_1fdtl"]
+[ext_resource type="Texture2D" uid="uid://cpj24smkm2a2o" path="res://Assets/menu_image/tartine_jam.png" id="1_1fdtl"]
 
 [sub_resource type="Image" id="Image_udqbs"]
 data = {

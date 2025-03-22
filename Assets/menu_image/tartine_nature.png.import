@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpj24smkm2a2o"
-path="res://.godot/imported/tartine_jam.png-ae1e06d8313227b52ff55f2d8965b217.ctex"
+uid="uid://ca85bqm6iwt3i"
+path="res://.godot/imported/tartine_nature.png-270f78952089ed337c6bd9e652288414.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/menu_image/menu_image/tartine_jam.png"
-dest_files=["res://.godot/imported/tartine_jam.png-ae1e06d8313227b52ff55f2d8965b217.ctex"]
+source_file="res://Assets/menu_image/tartine_nature.png"
+dest_files=["res://.godot/imported/tartine_nature.png-270f78952089ed337c6bd9e652288414.ctex"]
 
 [params]
 

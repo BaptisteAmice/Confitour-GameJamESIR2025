@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bblmvwk0drqb7"
-path="res://.godot/imported/menu_background_image.png-4faa439627d7950db2c38f8b58ab87a1.ctex"
+uid="uid://dbfdwqmr5t17q"
+path="res://.godot/imported/Petit_couteau.png-5a621742b69e7c08d7228fbb4158b1b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/menu_image/menu_image/menu_background_image.png"
-dest_files=["res://.godot/imported/menu_background_image.png-4faa439627d7950db2c38f8b58ab87a1.ctex"]
+source_file="res://Assets/menu_image/Petit_couteau.png"
+dest_files=["res://.godot/imported/Petit_couteau.png-5a621742b69e7c08d7228fbb4158b1b4.ctex"]
 
 [params]
 

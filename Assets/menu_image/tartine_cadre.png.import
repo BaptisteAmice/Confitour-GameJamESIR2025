@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brclyk4qpw2wx"
-path="res://.godot/imported/tartine_beurre.png-18ed47e3b1e4b86fefa3e4a38be70865.ctex"
+uid="uid://dju1kdoylhh2g"
+path="res://.godot/imported/tartine_cadre.png-717f0675e70364307ebb684ac08d7513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/menu_image/menu_image/tartine_beurre.png"
-dest_files=["res://.godot/imported/tartine_beurre.png-18ed47e3b1e4b86fefa3e4a38be70865.ctex"]
+source_file="res://Assets/menu_image/tartine_cadre.png"
+dest_files=["res://.godot/imported/tartine_cadre.png-717f0675e70364307ebb684ac08d7513.ctex"]
 
 [params]
 

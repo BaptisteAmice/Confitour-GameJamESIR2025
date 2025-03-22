@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=11 format=4 uid="uid://b1oicgscseky1"]
 
-[ext_resource type="Texture2D" uid="uid://brclyk4qpw2wx" path="res://Assets/menu_image/menu_image/tartine_beurre.png" id="1_f7f1s"]
-[ext_resource type="Texture2D" uid="uid://ca85bqm6iwt3i" path="res://Assets/menu_image/menu_image/tartine_nature.png" id="2_5tefi"]
-[ext_resource type="Texture2D" uid="uid://cpj24smkm2a2o" path="res://Assets/menu_image/menu_image/tartine_jam.png" id="3_3mxhn"]
+[ext_resource type="Texture2D" uid="uid://brclyk4qpw2wx" path="res://Assets/menu_image/tartine_beurre.png" id="1_f7f1s"]
+[ext_resource type="Texture2D" uid="uid://ca85bqm6iwt3i" path="res://Assets/menu_image/tartine_nature.png" id="2_5tefi"]
+[ext_resource type="Texture2D" uid="uid://cpj24smkm2a2o" path="res://Assets/menu_image/tartine_jam.png" id="3_3mxhn"]
 
 [sub_resource type="Image" id="Image_ru2pw"]
 data = {

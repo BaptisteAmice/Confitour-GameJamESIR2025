@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://GameController/global.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://dbfdwqmr5t17q"
+
 [input]
 
 player_1_drop={
