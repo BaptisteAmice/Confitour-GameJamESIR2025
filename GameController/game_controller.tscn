@@ -6,3 +6,5 @@
 script = ExtResource("1_tinjj")
 
 [node name="World" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
