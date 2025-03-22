@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="3_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://dyfl14l7l3xye" path="res://Game/Path/Path.tscn" id="3_segth"]
-[ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/curve_8.tres" id="4_p2hw7"]
+[ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/path_8.tres" id="4_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_ch4ko"]
 [ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="6_p2hw7"]
 
@@ -67,6 +67,14 @@ offset_top = 27.0
 offset_right = 709.0
 offset_bottom = 67.0
 text = "name"
+
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/Interface"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 109.0
+offset_right = 448.0
+offset_bottom = 149.0
+text = "Score: 0"
 
 [node name="ItemPath3D" parent="." instance=ExtResource("3_segth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10744, 0)

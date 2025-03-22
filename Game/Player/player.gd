@@ -7,9 +7,12 @@ class_name Player
 @onready var power_up_key_label: RichTextLabel = $CanvasLayer/Interface/PowerUpTextureRect/PowerUpKeyLabel
 @onready var drop_key_label: RichTextLabel = $CanvasLayer/Interface/DropKeyLabel
 @onready var player_name_label: RichTextLabel = $CanvasLayer/Interface/PlayerNameLabel
+@onready var score_label: RichTextLabel = $CanvasLayer/Interface/ScoreLabel
 @onready var item_path_3d: ItemPath3D = $ItemPath3D
 @onready var bread_list: Node3D = $BreadList
 
+
+@onready var score: float = 0
 
 
 func _ready(): 
@@ -44,4 +47,18 @@ func _physics_process(delta: float) -> void:
 		print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
 		print("I HAVE DA POWER")
+
+func get_highest_bread():
+	var max_y: float = 0
+	#for node in bread_list:
+	#	if node is Brioche:
+	#		if Brioche.trans
+			
+	
 		
+func update_score(new_score: float):
+	self.score = new_score
+	self.score_label.text = "Score: " + str(new_score)
+
+	
+	
