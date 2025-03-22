@@ -7,6 +7,3 @@ class_name Game
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
-		
-
-		
