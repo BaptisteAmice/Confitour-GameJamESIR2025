@@ -21,6 +21,11 @@ const BRIOCHE = preload("res://Game/Brioche.tscn")
 
 const CHANCE_BRIOCHE_CONFITURE = 0.7  # 70% de chance pour Brioche Confiture
 
+@onready var score_scale : float = 3;
+@onready var score_rotate = 0;
+@onready var pred_score : int = score;
+
+
 func _ready(): 
 	Global.players.push_front(self)
 	update_score()
@@ -69,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		use_current_power_up()
 
 	update_score()
+	update_displayed_score()
 	
 func give_power(power: String):
 	current_power_up = power
@@ -98,10 +104,22 @@ func get_highest_bread() -> float:
 func update_score():
 	if len(bread_list.get_children()) > 2:
 		self.score = (get_highest_bread() + temp_patch_coord) * 10
-		self.score_label.text = "Score: " + str(int(self.score))
+		self.score_label.text = str(int(self.score))
 	else:
 		self.score = 0
-		self.score_label.text = "Score: 0"
+		self.score_label.text = "0"
+		
+func update_displayed_score() -> void:
+	if pred_score != int(score):
+		score_scale = score_scale * 1.5
+		score_rotate = score_rotate + randi_range(-1, 1)
+		pred_score = int(score)
+	else:
+		score_scale = lerp(score_scale, 1.0, 0.1)
+		score_rotate = score_rotate * 0.9
+		
+	self.score_label.scale = Vector2(score_scale, score_scale);
+	self.score_label.rotation = score_rotate
 
 	
 	

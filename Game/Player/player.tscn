@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5c8l34hgawd4"]
+[gd_scene load_steps=10 format=3 uid="uid://5c8l34hgawd4"]
 
 [ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
 [ext_resource type="Environment" uid="uid://bu2rvgrl0l3w0" path="res://Background/background_world_environment.tres" id="2_vh1aq"]
 [ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="3_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://dyfl14l7l3xye" path="res://Game/Path/Path.tscn" id="3_segth"]
+[ext_resource type="FontFile" uid="uid://3khe0adpu3ff" path="res://Assets/mania.ttf" id="4_4ddeg"]
 [ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/path_8.tres" id="4_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_ch4ko"]
 [ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="6_p2hw7"]
@@ -32,8 +33,8 @@ offset_bottom = 40.0
 
 [node name="PowerUpTextureRect" type="TextureRect" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 172.0
+offset_bottom = 172.0
 texture = ExtResource("6_p2hw7")
 
 [node name="PowerUpKeyLabel" type="RichTextLabel" parent="CanvasLayer/Interface/PowerUpTextureRect"]
@@ -44,41 +45,61 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.0
-offset_top = 52.0
-offset_right = 44.0
-offset_bottom = 97.0
+offset_left = -46.0
+offset_top = 95.0
+offset_right = 41.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_4ddeg")
+theme_override_font_sizes/normal_font_size = 36
 text = "Z"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DropKeyLabel" type="RichTextLabel" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_left = 273.0
-offset_top = 20.0
-offset_right = 416.0
-offset_bottom = 60.0
+offset_left = 192.0
+offset_top = 56.0
+offset_right = 455.0
+offset_bottom = 96.0
+theme_override_fonts/normal_font = ExtResource("4_4ddeg")
+theme_override_font_sizes/normal_font_size = 36
 text = "Z to drop"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerNameLabel" type="RichTextLabel" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_left = 620.0
-offset_top = 27.0
-offset_right = 709.0
-offset_bottom = 67.0
+offset_left = 192.0
+offset_top = 16.0
+offset_right = 635.0
+offset_bottom = 56.0
+theme_override_fonts/normal_font = ExtResource("4_4ddeg")
+theme_override_font_sizes/normal_font_size = 36
 text = "name"
 
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/Interface"]
 layout_mode = 0
-offset_left = 339.0
-offset_top = 109.0
-offset_right = 448.0
-offset_bottom = 149.0
-text = "Score: 0"
+offset_left = 335.0
+offset_top = 73.0
+offset_right = 497.0
+offset_bottom = 190.0
+pivot_offset = Vector2(79, 54)
+theme_override_fonts/normal_font = ExtResource("4_4ddeg")
+theme_override_font_sizes/normal_font_size = 67
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePre" type="RichTextLabel" parent="CanvasLayer/Interface"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 99.0
+offset_right = 389.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("4_4ddeg")
+theme_override_font_sizes/normal_font_size = 67
+text = "Score:"
 
 [node name="ItemPath3D" parent="." instance=ExtResource("3_segth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10744, 0)

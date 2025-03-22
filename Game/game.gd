@@ -10,6 +10,10 @@ class_name Game
 @onready var clocks: Node = $Clocks
 @onready var clockplayed : int = 0
 
+@onready var pred_game_timer: int = int(game_timer.time_left)
+@onready var timer_scale : float = 0;
+@onready var timer_rotate = 0;
+
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
@@ -20,6 +24,8 @@ func _ready() -> void:
 	soundtracks[1].play()
 	
 	timer_label.text = str(int(game_timer.time_left))
+	
+	timer_label.position = $MainCamera.position + Vector2(0, 300) - timer_label.size/2
 
 
 func _on_game_timer_timeout() -> void:
@@ -53,6 +59,28 @@ func _process(delta: float) -> void:
 		print("time left 15")
 		clockplayed +=1
 		clocklist[1].play()
+		
+	update_displayed_game_timer()
+		
+
+
+	
+
+func update_displayed_game_timer() -> void:
+	if pred_game_timer != int(game_timer.time_left):
+		if game_timer.time_left < 10:
+			timer_scale = timer_scale * 10
+			#timer_color = 1
+		else:
+			timer_scale = timer_scale * 1.5
+
+		timer_rotate = timer_rotate + randi_range(-1, 1)
+		pred_game_timer = int(game_timer.time_left)
+	else:
+		timer_scale = lerp(timer_scale, 1.0, 0.1)
+		timer_rotate = timer_rotate * 0.9    
+	self.timer_label.scale = Vector2(timer_scale, timer_scale);
+	self.timer_label.rotation = timer_rotate
 
 func _on_seconds_timer_timeout() -> void:
 	timer_label.text = str(int(game_timer.time_left))
