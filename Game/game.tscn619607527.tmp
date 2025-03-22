@@ -7,6 +7,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jcm6v")
+nb_players = null
 
 [node name="Control" type="Control" parent="."]
 z_index = 1
