@@ -87,3 +87,11 @@ offset_bottom = 60.0
 text = "Z to drop"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerNameLabel" type="RichTextLabel" parent="CanvasLayer/Interface"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 27.0
+offset_right = 709.0
+offset_bottom = 67.0
+text = "name"
