@@ -8,9 +8,6 @@ class_name ItemPath3D
 
 const BRIOCHE = preload("res://Game/Brioche.tscn")
 
-func _ready() -> void:
-	path_follow_3d.progress = 1
-
 func _physics_process(delta: float) -> void:
 	# Update progress based on delta time to ensure consistent movement regardless of frame rate
 	path_follow_3d.progress += progress_speed * delta

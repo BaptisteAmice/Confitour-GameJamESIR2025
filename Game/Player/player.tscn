@@ -1,18 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://by1uf2wunyn3j"]
+[gd_scene load_steps=7 format=3 uid="uid://by1uf2wunyn3j"]
 
 [ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="3_p2hw7"]
-[ext_resource type="Script" uid="uid://dimam2nar814n" path="res://Game/Player/path_3d.gd" id="4_p2hw7"]
-[ext_resource type="PackedScene" uid="uid://dm1m1x1y22jrk" path="res://Game/Brioche.tscn" id="5_p2hw7"]
+[ext_resource type="PackedScene" uid="uid://dyfl14l7l3xye" path="res://Game/Path/Path.tscn" id="3_segth"]
+[ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/curve_8.tres" id="4_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_ch4ko"]
 [ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="6_p2hw7"]
-
-[sub_resource type="Curve3D" id="Curve3D_vytja"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 1),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_l8h54")
@@ -20,20 +13,10 @@ script = ExtResource("1_l8h54")
 [node name="BreadList" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.716862, 0.697215, 0, -0.697215, 0.716862, 0, 3.11148, 2.70695)
+transform = Transform3D(1, 0, 0, 0, 0.716862, 0.697215, 0, -0.697215, 0.716862, 0, 5.52235, 4.6205)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.899535, 0.436849, 0, -0.436849, 0.899535, 0, 3.07952, 4.12652)
-
-[node name="ItemPath3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743209, 4.39578, -1.35612)
-curve = SubResource("Curve3D_vytja")
-script = ExtResource("4_p2hw7")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="ItemPath3D"]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
-
-[node name="Brioche" parent="ItemPath3D/PathFollow3D" instance=ExtResource("5_p2hw7")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -85,8 +68,12 @@ offset_right = 709.0
 offset_bottom = 67.0
 text = "name"
 
+[node name="ItemPath3D" parent="." instance=ExtResource("3_segth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10744, 0)
+curve = ExtResource("4_p2hw7")
+
 [node name="Table" parent="." instance=ExtResource("3_p2hw7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0877235, 1.18381, -0.166174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.184, 0)
 
 [node name="Assiette" parent="." instance=ExtResource("6_ch4ko")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.32602, 0)
