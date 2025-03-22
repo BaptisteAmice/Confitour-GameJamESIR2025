@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://by1uf2wunyn3j"]
+
+[ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
+[ext_resource type="ArrayMesh" uid="uid://dbmo5i78on6c7" path="res://Assets/plastic_table.obj" id="2_4ntmi"]
+[ext_resource type="ArrayMesh" uid="uid://ccgpes2h571jx" path="res://Assets/assiette.obj" id="3_vytja"]
+[ext_resource type="Script" uid="uid://dimam2nar814n" path="res://Game/Player/path_3d.gd" id="4_p2hw7"]
+[ext_resource type="ArrayMesh" uid="uid://dtfok2b1qv3ae" path="res://Assets/brioche.obj" id="4_segth"]
+
+[sub_resource type="Curve3D" id="Curve3D_vytja"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_l8h54")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.716862, 0.697215, 0, -0.697215, 0.716862, 0, 3.11148, 2.70695)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.899535, 0.436849, 0, -0.436849, 0.899535, 0, 3.07952, 4.12652)
+
+[node name="PlasticTable" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.17295)
+mesh = ExtResource("2_4ntmi")
+
+[node name="Assiette" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.102057, 0.186971, -1.99016)
+mesh = ExtResource("3_vytja")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291425, 1.98853, -3.05291)
+curve = SubResource("Curve3D_vytja")
+script = ExtResource("4_p2hw7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+
+[node name="Brioche" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = ExtResource("4_segth")
+skeleton = NodePath("../../..")
+
+[node name="Timer" type="Timer" parent="Path3D"]
+wait_time = 0.001
+autostart = true
+
+[connection signal="timeout" from="Path3D/Timer" to="Path3D" method="_on_timer_timeout"]
