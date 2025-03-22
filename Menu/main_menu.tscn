@@ -31,5 +31,13 @@ offset_right = 249.0
 offset_bottom = 194.0
 text = "2"
 
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 188.0
+offset_right = 739.0
+offset_bottom = 288.0
+text = "Confitour"
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="value_changed" from="NBPLayerHSlider" to="." method="_on_nbp_layer_h_slider_value_changed"]

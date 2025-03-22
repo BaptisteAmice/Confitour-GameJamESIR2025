@@ -27,6 +27,7 @@ position = Vector2(1024, 0)
 script = ExtResource("2_7raqb")
 
 [node name="Background" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite" type="Sprite2D" parent="Background"]
 scale = Vector2(1.2, 1.2)
