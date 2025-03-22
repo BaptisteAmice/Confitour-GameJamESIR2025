@@ -5,6 +5,7 @@ class_name Game
 @onready var players_h_box_container: HBoxContainer = $Control/PlayersHBoxContainer
 @onready var timer_label: RichTextLabel = $Control/TimerLabel
 @onready var game_timer: Timer = $GameTimer
+@onready var winners: Node = $Winners
 
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
@@ -21,6 +22,8 @@ func _ready() -> void:
 func _on_game_timer_timeout() -> void:
 	var max_scoring_player_number = get_max_scoring_player_number()
 	print("winner is player ", str(max_scoring_player_number))
+	var winners_list = winners.get_children()
+	winners_list[max_scoring_player_number-1].play()
 	
 
 func get_max_scoring_player_number():

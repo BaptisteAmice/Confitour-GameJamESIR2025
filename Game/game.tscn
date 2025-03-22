@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d37sb47dbjwd1"]
+[gd_scene load_steps=6 format=3 uid="uid://d37sb47dbjwd1"]
 
 [ext_resource type="Script" uid="uid://brdphcvi7vqhw" path="res://Game/players_h_box_container.gd" id="1_7raqb"]
 [ext_resource type="Script" uid="uid://lv2g31qr4jrx" path="res://Game/game.gd" id="1_jcm6v"]
 [ext_resource type="Script" uid="uid://ckvu7oq04hb0p" path="res://Game/main_camera.gd" id="2_7raqb"]
 [ext_resource type="Texture2D" uid="uid://bntco7p0glyet" path="res://Homepage_Hero3-scaled.jpg" id="3_7raqb"]
+[ext_resource type="PackedScene" path="res://Game/winners.tscn" id="5_fwxkx"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jcm6v")
@@ -41,12 +42,14 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_7raqb")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 50.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
 [node name="SecondsTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Winners" parent="." instance=ExtResource("5_fwxkx")]
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="SecondsTimer" to="." method="_on_seconds_timer_timeout"]
