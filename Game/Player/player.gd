@@ -47,18 +47,21 @@ func _physics_process(delta: float) -> void:
 		print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
 		print("I HAVE DA POWER")
-
-func get_highest_bread():
-	var max_y: float = 0
-	#for node in bread_list:
-	#	if node is Brioche:
-	#		if Brioche.trans
-			
-	
 		
+	update_score(get_highest_bread())
+
+func get_highest_bread() -> float:
+	var max_y: float = 0
+	for node in bread_list.get_children():
+		if node is Brioche:
+			# Access the y position from the node's transform.origin
+			if node.transform.origin.y > max_y:
+				max_y = node.transform.origin.y  # Update the max_y if a higher y is found
+	return max_y
+
 func update_score(new_score: float):
 	self.score = new_score
-	self.score_label.text = "Score: " + str(new_score)
+	self.score_label.text = "Score: " + str(int(new_score*10))
 
 	
 	

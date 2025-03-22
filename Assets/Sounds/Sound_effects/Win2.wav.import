@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://vu6dngrmat7o"
-path="res://.godot/imported/chute.wav-572f08f31f2ae1eebb237b96215128a6.sample"
+uid="uid://c2pcklhx5bhbj"
+path="res://.godot/imported/Win2.wav-50c393d094ab7664117daf2a95fd2ce9.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/Sound_effects/chute.wav"
-dest_files=["res://.godot/imported/chute.wav-572f08f31f2ae1eebb237b96215128a6.sample"]
+source_file="res://Assets/Sounds/Sound_effects/Win2.wav"
+dest_files=["res://.godot/imported/Win2.wav-50c393d094ab7664117daf2a95fd2ce9.sample"]
 
 [params]
 

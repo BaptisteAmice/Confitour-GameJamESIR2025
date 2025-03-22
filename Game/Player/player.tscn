@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://by1uf2wunyn3j"]
+[gd_scene load_steps=8 format=3 uid="uid://by1uf2wunyn3j"]
 
 [ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="3_p2hw7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/path_8.tres" id="4_p2hw7"]
 [ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_ch4ko"]
 [ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="6_p2hw7"]
+[ext_resource type="PackedScene" uid="uid://cpqn7pt1r8r80" path="res://GameController/audio_controller.tscn" id="7_ch4ko"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_l8h54")
@@ -85,3 +86,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.184, 0)
 
 [node name="Assiette" parent="." instance=ExtResource("6_ch4ko")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.32602, 0)
+
+[node name="AudioController" parent="." instance=ExtResource("7_ch4ko")]

@@ -5,7 +5,7 @@ class_name ItemPath3D
 @export var progress_speed: float = 2  # Speed of the path following, adjusted based on delta time
 @onready var bread_list: Node3D = $"../BreadList"
 @onready var player: Player = $".."
-
+@onready var chute: AudioStreamPlayer = $"../AudioController/Chute"
 
 const BRIOCHE = preload("res://Game/Brioche.tscn")
 
@@ -30,6 +30,7 @@ func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
 func spawn_bread(player: Player, player_number: int):
 		if path_follow_3d.get_child_count() > 0:
 			var first_child = path_follow_3d.get_child(0)
+			chute.play()
 			instantiate_brioche_at_follow_point(first_child, player.bread_list)
 		else:
 			print("No children found.")
