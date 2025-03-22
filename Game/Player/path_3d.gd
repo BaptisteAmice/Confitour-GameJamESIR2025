@@ -47,6 +47,7 @@ func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
 	new_parent.add_child(new_object)
 	# Now that it's added to the tree, set the local transform
 	new_object.global_transform.origin = node.global_transform.origin
+	new_object.global_transform.origin.y -= 0.001
 	new_object.rigid_body_3d.scale = node.rigid_body_3d.scale
 	new_object.change_gravity(1)
 
