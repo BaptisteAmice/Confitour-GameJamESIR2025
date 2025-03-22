@@ -1,20 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://5c8l34hgawd4"]
+[gd_scene load_steps=9 format=3 uid="uid://by1uf2wunyn3j"]
 
-[ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_l8h54"]
-[ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="3_p2hw7"]
-[ext_resource type="PackedScene" uid="uid://dyfl14l7l3xye" path="res://Game/Path/Path.tscn" id="3_segth"]
-[ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/path_8.tres" id="4_p2hw7"]
-[ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_ch4ko"]
-[ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="6_p2hw7"]
-[ext_resource type="PackedScene" uid="uid://cpqn7pt1r8r80" path="res://GameController/audio_controller.tscn" id="7_ch4ko"]
+[ext_resource type="Script" uid="uid://bbb7hi2p8pxbe" path="res://Game/Player/player.gd" id="1_fhf4l"]
+[ext_resource type="Environment" uid="uid://dyio36qa6oadu" path="res://Background/background_world_environment.tres" id="2_fhf4l"]
+[ext_resource type="Texture2D" uid="uid://bd1p3wcecwvid" path="res://icon.svg" id="2_sf2cw"]
+[ext_resource type="PackedScene" uid="uid://dyfl14l7l3xye" path="res://Game/Path/Path.tscn" id="3_cb6a7"]
+[ext_resource type="Curve3D" uid="uid://b675tnr71msyk" path="res://Game/Path/path_8.tres" id="4_6cy5m"]
+[ext_resource type="PackedScene" uid="uid://dw5noiqp3kma8" path="res://Game/Bodies/Table.tscn" id="5_krr1y"]
+[ext_resource type="PackedScene" uid="uid://chins3cvbw1kj" path="res://Game/Bodies/Assiette.tscn" id="6_dhct2"]
+[ext_resource type="PackedScene" uid="uid://cpqn7pt1r8r80" path="res://GameController/audio_controller.tscn" id="7_8vpet"]
 
 [node name="Player" type="Node3D"]
-script = ExtResource("1_l8h54")
+script = ExtResource("1_fhf4l")
 
 [node name="BreadList" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.716862, 0.697215, 0, -0.697215, 0.716862, 0, 5.52235, 4.6205)
+transform = Transform3D(-0.987824, 0.108468, -0.111524, 0.0423776, 0.877361, 0.477956, 0.14969, 0.46741, -0.871275, 0, 5.52235, -2.78145)
+environment = ExtResource("2_fhf4l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.899535, 0.436849, 0, -0.436849, 0.899535, 0, 3.07952, 4.12652)
@@ -31,7 +33,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_p2hw7")
+texture = ExtResource("2_sf2cw")
 
 [node name="PowerUpKeyLabel" type="RichTextLabel" parent="CanvasLayer/Interface/PowerUpTextureRect"]
 z_index = 1
@@ -77,14 +79,14 @@ offset_right = 448.0
 offset_bottom = 149.0
 text = "Score: 0"
 
-[node name="ItemPath3D" parent="." instance=ExtResource("3_segth")]
+[node name="ItemPath3D" parent="." instance=ExtResource("3_cb6a7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10744, 0)
-curve = ExtResource("4_p2hw7")
+curve = ExtResource("4_6cy5m")
 
-[node name="Table" parent="." instance=ExtResource("3_p2hw7")]
+[node name="Table" parent="." instance=ExtResource("5_krr1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.184, 0)
 
-[node name="Assiette" parent="." instance=ExtResource("6_ch4ko")]
+[node name="Assiette" parent="." instance=ExtResource("6_dhct2")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.32602, 0)
 
-[node name="AudioController" parent="." instance=ExtResource("7_ch4ko")]
+[node name="AudioController" parent="." instance=ExtResource("7_8vpet")]

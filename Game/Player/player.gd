@@ -53,15 +53,16 @@ func _physics_process(delta: float) -> void:
 func get_highest_bread() -> float:
 	var max_y: float = 0
 	for node in bread_list.get_children():
-		if node is Brioche:
+		if node is Brioche and node.to_account_in_scoring() :
 			# Access the y position from the node's transform.origin
 			if node.transform.origin.y > max_y:
-				max_y = node.transform.origin.y  # Update the max_y if a higher y is found
+				max_y = node.rigid_body_3d.transform.origin.y  # Update the max_y if a higher y is found
 	return max_y
 
 func update_score(new_score: float):
 	self.score = new_score
-	self.score_label.text = "Score: " + str(int(new_score*10))
+	var temp_patch_coord = 27
+	self.score_label.text = "Score: " + str(int(new_score*10 + temp_patch_coord))
 
 	
 	
