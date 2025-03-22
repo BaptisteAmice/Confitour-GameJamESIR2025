@@ -14,8 +14,12 @@ class_name Player
 @onready var temp_patch_coord: float = 2.8
 @onready var score: float = 0
 
-@onready var current_power_up: String = "shrink"
+@onready var current_power_up: String = "size_up"
 
+const BRIOCHE_CONFITURE = preload("res://Game/Bodies/Brioche_confiture.tscn")
+const BRIOCHE = preload("res://Game/Brioche.tscn")
+
+const CHANCE_BRIOCHE_CONFITURE = 0.7  # 70% de chance pour Brioche Confiture
 
 func _ready(): 
 	Global.players.push_front(self)
@@ -43,9 +47,22 @@ func _ready():
 	power_up_key_label.text = available_power_key
 	print(Global.players)
 	
+func spawn_random_bread():
+	var bread_instance = null
+	var rand_chance = randf()  # Génère un nombre aléatoire entre 0 et 1
+	
+	if rand_chance < CHANCE_BRIOCHE_CONFITURE:
+		bread_instance = BRIOCHE_CONFITURE.instantiate()
+	else:
+		bread_instance = BRIOCHE.instantiate()
+	bread_instance.collision_disabled = true
+	return bread_instance
+	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(self.key_drop):
 		item_path_3d.spawn_bread(self, self.player_number)
+		
+		item_path_3d.change_current_spawner(spawn_random_bread())
 		#print(self.key_drop)
 		#print(str(self.player_number) )
 	if Input.is_action_just_pressed(self.key_power):
@@ -60,13 +77,14 @@ func give_power(power: String):
 
 func use_current_power_up():
 	if current_power_up:
-		if current_power_up == "shrink":
-			print("shrink")
-			item_path_3d.get_current_spawner().scale_brioche(5)
+		if current_power_up == "size_up":
+			print("size_up")
+			item_path_3d.get_current_spawner().scale_brioche(2)
 		else:
 			print("invalid power up")
 	else:
 			print("no power up")
+	current_power_up = ""
 
 func get_highest_bread() -> float:
 	var max_y: float = -INF

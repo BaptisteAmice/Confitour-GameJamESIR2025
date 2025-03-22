@@ -34,14 +34,20 @@ func change_current_spawner(new_brioche: Brioche):
 	
 func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
 	# Spawn the node
-	var new_object = BRIOCHE.instantiate()
-	#var new_object = BRIOCHE_CONFITURE.instantiate()
+	var new_object
+
+	if node is BriocheConfiture:
+		new_object = BRIOCHE_CONFITURE.instantiate()
+	elif node is Brioche:
+		new_object = BRIOCHE.instantiate()
+	else:
+		print("faiiiiil")
 
 	# Ensure the new object is inside the tree before setting global properties
 	new_parent.add_child(new_object)
 	# Now that it's added to the tree, set the local transform
 	new_object.global_transform.origin = node.global_transform.origin
-	new_object.scale = node.scale
+	new_object.rigid_body_3d.scale = node.rigid_body_3d.scale
 	new_object.change_gravity(1)
 
 	
