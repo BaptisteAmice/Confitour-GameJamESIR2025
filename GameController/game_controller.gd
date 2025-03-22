@@ -4,6 +4,8 @@ class_name GameController
 var current_scene
 @onready var world: Node = $World
 @onready var soundtracks: Node = $Soundtracks
+@onready var input_manager: Node = $InputManager
+
 
 func _ready() -> void:
 	Global.GAME_CONTROLLER = self
