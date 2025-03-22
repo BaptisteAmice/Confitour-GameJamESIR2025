@@ -7,6 +7,8 @@ extends Node
 
 func _ready() -> void:
 	nbp_layer_h_slider.value = base_nb_player_number
+	var soundtracks = Global.GAME_CONTROLLER.soundtracks.get_children()
+	soundtracks[0].play()
 	
 func _init_params(params: Dictionary) -> void:
 	pass

@@ -7,3 +7,8 @@ class_name Game
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
+		
+func _ready() -> void:
+	var soundtracks = Global.GAME_CONTROLLER.soundtracks.get_children()
+	soundtracks[0].stop()
+	soundtracks[1].play()

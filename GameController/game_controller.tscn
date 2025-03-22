@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsqm0ivt8os0"]
+[gd_scene load_steps=3 format=3 uid="uid://dsqm0ivt8os0"]
 
 [ext_resource type="Script" uid="uid://cmsdp81sl6kst" path="res://GameController/game_controller.gd" id="1_tinjj"]
+[ext_resource type="PackedScene" uid="uid://c8ffpk0a5aexi" path="res://GameController/soundtracks.tscn" id="2_bxeof"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_tinjj")
 
 [node name="World" type="Node" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Soundtracks" parent="." instance=ExtResource("2_bxeof")]
