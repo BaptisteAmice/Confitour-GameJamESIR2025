@@ -1,2 +1,0 @@
-extends SubViewportContainer
-class_name PlayerSubViewportContainer

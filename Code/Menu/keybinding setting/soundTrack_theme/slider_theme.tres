@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bmvhvxfp0omu6"]
+
+[ext_resource type="Texture2D" uid="uid://4yxp2jwvcq1a" path="res://Assets/menu_image/Petite_brioche.png" id="1_yx8hl"]
+
+[sub_resource type="Image" id="Image_yx8hl"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 64, 255, 255, 255, 64, 0, 0, 0, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 4
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_gk2mq"]
+image = SubResource("Image_yx8hl")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yx8hl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbyh6"]
+
+[sub_resource type="Gradient" id="Gradient_yx8hl"]
+offsets = PackedFloat32Array(0.0294118, 0.338235, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.661018, 0.457302, 0.143957, 1, 1, 0.203922, 0.298039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jbyh6"]
+gradient = SubResource("Gradient_yx8hl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gk2mq"]
+texture = SubResource("GradientTexture2D_jbyh6")
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[resource]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("1_yx8hl")
+HSlider/icons/grabber_disabled = ExtResource("1_yx8hl")
+HSlider/icons/grabber_highlight = ExtResource("1_yx8hl")
+HSlider/icons/tick = SubResource("ImageTexture_gk2mq")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_yx8hl")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_jbyh6")
+HSlider/styles/slider = SubResource("StyleBoxTexture_gk2mq")

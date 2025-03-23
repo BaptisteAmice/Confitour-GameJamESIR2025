@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://dg1b31jwhcxk"]
+
+[ext_resource type="Script" uid="uid://do60jbqn78lkb" path="res://Game/Bodies/brioche_confiture.gd" id="1_dgtc6"]
+[ext_resource type="ArrayMesh" uid="uid://blsl4gfgjvjak" path="res://Assets/confiture.obj" id="2_fugfy"]
+[ext_resource type="ArrayMesh" uid="uid://dluw1v857mw3f" path="res://Assets/brioche_non-triangle.obj" id="3_b2v2q"]
+[ext_resource type="Texture2D" uid="uid://s5vop7inuw25" path="res://Assets/Textures/mie.png" id="4_ceda4"]
+[ext_resource type="PackedScene" path="res://Assets/Particles/jelly_fall.tscn" id="5_b2v2q"]
+[ext_resource type="PackedScene" uid="uid://h8eau5mcaye0" path="res://Assets/Particles/jelly_impact.tscn" id="5_ceda4"]
+[ext_resource type="AudioStream" uid="uid://rdygbxqnnt7b" path="res://Assets/Sounds/Sound_effects/jelly_sploosh.wav" id="7_14bhr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fugfy"]
+size = Vector3(0.6, 0.05, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2v2q"]
+albedo_texture = ExtResource("4_ceda4")
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14bhr"]
+albedo_color = Color(0.454902, 0, 0, 1)
+metallic = 0.45
+metallic_specular = 0.75
+roughness = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fugfy"]
+points = PackedVector3Array(0.185469, -0.000286817, 0.113354, 0.173114, 0.0113474, 0.109508, 0.161964, 0.00966818, 0.192683, 0.161249, -0.00585421, 0.186312, 0.17172, -0.000726008, -0.133221, 0.1194, 0.0292337, 0.162381, 0.143507, 0.0271669, -0.11535, 0.0518991, 0.00702442, 0.206358, 0.050543, -0.00431273, 0.205464, 0.03751, 0.0242261, 0.189109, -0.150076, -0.012089, 0.18806, 0.116537, -0.00339991, -0.170205, 0.096234, 0.0205575, -0.169894, -0.13708, 0.031899, 0.101505, -0.116137, 0.0272444, 0.155971, 0.0979668, 0.0301164, -0.0890495, 0.0607133, 0.026168, -0.138621, -0.150339, 0.0124756, 0.188993, -0.15904, -0.00057961, 0.198627, -0.0633643, -0.00612117, 0.204066, -0.199345, 0.00226221, 0.134721, -0.182168, -0.00962178, 0.119375, -0.147476, -0.0045065, -0.164844, 0.000256538, -0.00363242, -0.190523, -0.133125, 0.015593, -0.161037, -0.0919165, 0.0277827, -0.135707, -0.190945, 0.0213584, 0.132195, -0.146874, 0.0274511, -0.0866409, -0.179871, 0.0139869, -0.103346, -0.182055, -0.00367548, -0.10591)
+
+[node name="BriocheConfiture" type="Node3D"]
+script = ExtResource("1_dgtc6")
+metadata/_custom_type_script = "uid://dwwnbk4a7kxyp"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.13)
+shape = SubResource("BoxShape3D_fugfy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.025, 0.025)
+mesh = ExtResource("3_b2v2q")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_b2v2q")
+
+[node name="Area3D" type="Area3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0502721, -0.132107)
+monitorable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0244556, 0)
+mesh = ExtResource("2_fugfy")
+surface_material_override/0 = SubResource("StandardMaterial3D_14bhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0244556, 0)
+shape = SubResource("ConvexPolygonShape3D_fugfy")
+
+[node name="Jelly_Impact" parent="RigidBody3D/Area3D" instance=ExtResource("5_ceda4")]
+
+[node name="Jelly_fall" parent="RigidBody3D" instance=ExtResource("5_b2v2q")]
+
+[node name="Jelly_squoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_14bhr")
+bus = &"SFX"
+
+[connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,59 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b1oicgscseky1"]
+
+[ext_resource type="Texture2D" uid="uid://brclyk4qpw2wx" path="res://Assets/menu_image/tartine_beurre.png" id="1_f7f1s"]
+[ext_resource type="Texture2D" uid="uid://ca85bqm6iwt3i" path="res://Assets/menu_image/tartine_nature.png" id="2_5tefi"]
+[ext_resource type="Texture2D" uid="uid://cpj24smkm2a2o" path="res://Assets/menu_image/tartine_jam.png" id="3_3mxhn"]
+[ext_resource type="FontFile" uid="uid://3khe0adpu3ff" path="res://Assets/mania.ttf" id="4_5tefi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppfsg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l271v"]
+texture = ExtResource("1_f7f1s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7f1s"]
+texture = ExtResource("1_f7f1s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tefi"]
+texture = ExtResource("2_5tefi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvx13"]
+texture = ExtResource("3_3mxhn")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[resource]
+default_font = ExtResource("4_5tefi")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("4_5tefi")
+Button/styles/disabled = SubResource("StyleBoxFlat_ppfsg")
+Button/styles/focus = SubResource("StyleBoxTexture_l271v")
+Button/styles/hover = SubResource("StyleBoxTexture_f7f1s")
+Button/styles/normal = SubResource("StyleBoxTexture_5tefi")
+Button/styles/pressed = SubResource("StyleBoxTexture_jvx13")

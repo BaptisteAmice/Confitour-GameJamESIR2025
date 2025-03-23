@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0885l2mskhhh"]
+
+[ext_resource type="Script" uid="uid://cmsdp81sl6kst" path="res://GameController/game_controller.gd" id="1_3iy47"]
+
+[node name="GameController" type="Node"]
+script = ExtResource("1_3iy47")
+
+[node name="World" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

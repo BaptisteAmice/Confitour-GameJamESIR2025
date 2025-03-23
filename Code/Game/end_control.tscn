@@ -1,0 +1,158 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnmrk7kwwhvli"]
+
+[ext_resource type="Script" uid="uid://dih2rseuquu7w" path="res://Game/end_control.gd" id="1_d3j10"]
+[ext_resource type="Theme" uid="uid://b1oicgscseky1" path="res://Menu/font/menu.tres" id="2_8nnvp"]
+[ext_resource type="Script" uid="uid://rskyakff2iss" path="res://Game/button.gd" id="3_qs8nh"]
+[ext_resource type="Shader" uid="uid://dlo8d8fetljm6" path="res://Assets/Shaders/shiny.gdshader" id="4_g8ir5"]
+[ext_resource type="FontFile" uid="uid://3khe0adpu3ff" path="res://Assets/mania.ttf" id="5_htkud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glinl"]
+shader = ExtResource("4_g8ir5")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[node name="end_control" type="Control"]
+visible = false
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.0
+offset_top = 21.0
+offset_right = 1002.0
+offset_bottom = 950.0
+size_flags_horizontal = 4
+script = ExtResource("1_d3j10")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -294.5
+offset_right = 130.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8nnvp")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+script = ExtResource("3_qs8nh")
+
+[node name="Timer_button1" type="Timer" parent="Button"]
+wait_time = 0.1
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -83.5
+offset_right = 153.5
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8nnvp")
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+
+[node name="Timer_button2" type="Timer" parent="Button2"]
+wait_time = 0.1
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.5
+offset_top = 144.5
+offset_right = 178.5
+offset_bottom = 516.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8nnvp")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Timer_button3" type="Timer" parent="Button3"]
+wait_time = 0.1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_glinl")
+layout_mode = 0
+offset_left = 285.0
+offset_top = 117.0
+offset_right = 737.0
+offset_bottom = 182.0
+
+[node name="Player" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 455.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_htkud")
+theme_override_font_sizes/font_size = 70
+text = "Player 1 Gagne"
+
+[node name="Player2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 455.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("5_htkud")
+theme_override_font_sizes/font_size = 70
+text = "Player 2 Gagne"
+
+[node name="Player3" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 455.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("5_htkud")
+theme_override_font_sizes/font_size = 70
+text = "Player 3 Gagne"
+
+[node name="Player4" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 455.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("5_htkud")
+theme_override_font_sizes/font_size = 70
+text = "Player 4 Gagne"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="timeout" from="Button/Timer_button1" to="." method="_on_timer_button_1_timeout"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="focus_entered" from="Button2" to="." method="_on_button_2_focus_entered"]
+[connection signal="focus_exited" from="Button2" to="." method="_on_button_2_focus_exited"]
+[connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="timeout" from="Button2/Timer_button2" to="." method="_on_timer_button_2_timeout"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
+[connection signal="focus_entered" from="Button3" to="." method="_on_button_3_focus_entered"]
+[connection signal="focus_exited" from="Button3" to="." method="_on_button_3_focus_exited"]
+[connection signal="mouse_entered" from="Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="timeout" from="Button3/Timer_button3" to="." method="_on_timer_button_3_timeout"]
