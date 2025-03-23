@@ -16,6 +16,8 @@ class_name Game
 
 @export var power_up_times: Array[float] = [1,5,20]
 
+@onready var available_powers = ["size_up","jelly"]
+
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
@@ -63,10 +65,24 @@ func _process(delta: float) -> void:
 		clocklist[1].play()
 		
 	update_displayed_game_timer()
+	
+	
+func get_random_power_up():
+	# Get a random index
+	var random_index = randi() % available_powers.size()
+
+	# Get the random value from the array
+	var random_value = available_powers[random_index]
+	return random_value
 		
-func try_to_use_power():
-	#if len(power_up_times) > 0 and game_timer. > power_up_times[0]:
-	pass
+func try_to_give_power():
+	var elapsed_time = game_timer.wait_time - game_timer.time_left
+	if len(power_up_times) > 0 and elapsed_time > power_up_times[0]:
+		for player in Global.players:
+			player.give_power(get_random_power_up())
+		power_up_times.remove_at(0)
+		
+		
 		
 		
 
@@ -88,3 +104,4 @@ func update_displayed_game_timer() -> void:
 
 func _on_seconds_timer_timeout() -> void:
 	timer_label.text = str(int(game_timer.time_left))
+	try_to_give_power()

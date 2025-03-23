@@ -4,6 +4,7 @@ class_name Player
 @export var player_number: int
 @export var key_drop: String
 @export var key_power: String
+@onready var power_up_texture_rect: TextureRect = $CanvasLayer/Interface/PowerUpTextureRect
 @onready var power_up_key_label: RichTextLabel = $CanvasLayer/Interface/PowerUpTextureRect/PowerUpKeyLabel
 @onready var drop_key_label: RichTextLabel = $CanvasLayer/Interface/DropKeyLabel
 @onready var player_name_label: RichTextLabel = $CanvasLayer/Interface/PlayerNameLabel
@@ -14,12 +15,12 @@ class_name Player
 @onready var temp_patch_coord: float = 2.8
 @onready var score: float = 0
 
-@onready var current_power_up: String = "size_up"
+@onready var current_power_up: String
 
 const BRIOCHE_CONFITURE = preload("res://Game/Bodies/Brioche_confiture.tscn")
 const BRIOCHE = preload("res://Game/Brioche.tscn")
 
-const CHANCE_BRIOCHE_CONFITURE = 0.2  # 70% de chance pour Brioche Confiture
+const CHANCE_BRIOCHE_CONFITURE = 0.2  # 20% de chance pour Brioche Confiture
 
 @onready var score_scale : float = 3;
 @onready var score_rotate = 0;
@@ -29,7 +30,7 @@ const CHANCE_BRIOCHE_CONFITURE = 0.2  # 70% de chance pour Brioche Confiture
 func _ready(): 
 	Global.players.push_front(self)
 	update_score()
-	
+		
 	var current_player_number = Global.players.size()
 	player_number = current_player_number
 	self.key_drop = "player_"+  str(current_player_number) + "_drop"
@@ -78,7 +79,11 @@ func _physics_process(delta: float) -> void:
 	
 func give_power(power: String):
 	current_power_up = power
-	#todo update sprite
+	# update sprite
+	if power == "size_up":
+		power_up_texture_rect.texture = load("res://Assets/sprites_128/tartine_nature_128.png")
+	elif power == "jelly":
+		power_up_texture_rect.texture = load("res://Assets/sprites_128/tartine_jam_128.png")
 	
 
 func use_current_power_up():
@@ -86,11 +91,15 @@ func use_current_power_up():
 		if current_power_up == "size_up":
 			print("size_up")
 			item_path_3d.get_current_spawner().scale_brioche(2)
+		elif current_power_up == "jelly":
+			print("jelly")
+			item_path_3d.change_current_spawner(BRIOCHE_CONFITURE.instantiate())
 		else:
 			print("invalid power up")
 	else:
 			print("no power up")
 	current_power_up = ""
+	power_up_texture_rect.texture = load("res://Assets/sprites_128/tartine_crossed_128.png")
 
 func get_highest_bread() -> float:
 	var max_y: float = -INF

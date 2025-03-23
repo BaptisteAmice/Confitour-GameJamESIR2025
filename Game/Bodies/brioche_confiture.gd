@@ -9,7 +9,7 @@ func change_gravity(gravity: float):
 	rigid_body_3d.gravity_scale = gravity
 
 func _ready():
-	self.change_gravity(0)
+	super._ready()
 
 
 func _process(delta: float) -> void:
