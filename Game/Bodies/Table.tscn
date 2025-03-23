@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw5noiqp3kma8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dbmo5i78on6c7" path="res://Assets/plastic_table.obj" id="1_l4y21"]
-[ext_resource type="Texture2D" uid="uid://cnu3b7f5ap0qd" path="res://Assets/bois.png" id="2_qlixy"]
+[ext_resource type="Texture2D" uid="uid://deupr8wpnef6v" path="res://Assets/bois.png" id="2_qlixy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l4y21"]
 height = 0.3

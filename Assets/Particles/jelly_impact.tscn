@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwokdxpkk6wtk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gf3cr"]
+transparency = 1
+albedo_color = Color(0.843137, 0, 0.207843, 0.784314)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0k3b"]
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -2, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 25.29
+scale_min = 0.05
+scale_max = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_nao5c"]
+
+[node name="Jelly_Impact" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_gf3cr")
+amount = 50
+lifetime = 5.0
+explosiveness = 1.0
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_n0k3b")
+draw_pass_1 = SubResource("SphereMesh_nao5c")
