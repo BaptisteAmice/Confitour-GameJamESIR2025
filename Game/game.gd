@@ -36,13 +36,22 @@ func _ready() -> void:
 	soundtracks[1].play()
 	
 	timer_label.text = str(int(game_timer.time_left))
+	if(nb_players==2):
+		timer_label.position = $MainCamera.position + Vector2(0, 300) - timer_label.size/2
+	if (nb_players==3):
+		timer_label.position = $MainCamera.position+ Vector2(800, 0)
+	if(nb_players == 4):
+		timer_label.position = $MainCamera.position*2+ Vector2(-100, 300)
 	
-	timer_label.position = $MainCamera.position + Vector2(0, 300) - timer_label.size/2
 	$end_control.visible=false
 	$end_control/ColorRect/Player.visible=false
 	$end_control/ColorRect/Player2.visible=false
 	$end_control/ColorRect/Player3.visible=false
 	$end_control/ColorRect/Player4.visible=false
+	
+	
+	
+	
 
 
 func _on_game_timer_timeout() -> void:

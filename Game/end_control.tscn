@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dih2rseuquu7w" path="res://Game/end_control.gd" id="1_d3j10"]
 [ext_resource type="Theme" uid="uid://b1oicgscseky1" path="res://Menu/font/menu.tres" id="2_8nnvp"]
-[ext_resource type="Script" path="res://Game/button.gd" id="3_qs8nh"]
+[ext_resource type="Script" uid="uid://rskyakff2iss" path="res://Game/button.gd" id="3_qs8nh"]
 [ext_resource type="Shader" uid="uid://dlo8d8fetljm6" path="res://Assets/Shaders/shiny.gdshader" id="4_g8ir5"]
 [ext_resource type="FontFile" uid="uid://3khe0adpu3ff" path="res://Assets/mania.ttf" id="5_htkud"]
 
