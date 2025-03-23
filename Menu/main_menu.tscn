@@ -193,7 +193,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_previous = NodePath("../Button2")
 theme = ExtResource("4_rw3mj")
-min_value = 10.0
+min_value = 15.0
 max_value = 200.0
 value = 50.0
 

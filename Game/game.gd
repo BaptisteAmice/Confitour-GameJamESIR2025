@@ -103,6 +103,11 @@ func _process(delta: float) -> void:
 		print("time left 15")
 		clockplayed +=1
 		clocklist[1].play()
+	if game_timer.time_left < 12.0 and clockplayed ==2:
+		var clocklist = clocks.get_children()
+		print("time left 10")
+		clockplayed +=1
+		clocklist[2].play()
 		
 	update_displayed_game_timer()
 	

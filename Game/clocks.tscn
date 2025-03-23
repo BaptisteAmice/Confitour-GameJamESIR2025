@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqykhenpt1kyp"]
+[gd_scene load_steps=4 format=3 uid="uid://bqykhenpt1kyp"]
 
 [ext_resource type="AudioStream" uid="uid://narhv411anpm" path="res://Assets/Sounds/Sound_effects/30s_landmark.wav" id="1_wlfo1"]
 [ext_resource type="AudioStream" uid="uid://bb5w0ctsyhf7i" path="res://Assets/Sounds/Sound_effects/15s_landmark.wav" id="2_lehf3"]
+[ext_resource type="AudioStream" uid="uid://cm1p6n61ycnnw" path="res://Assets/Sounds/Sound_effects/10s_countdown.wav" id="3_lehf3"]
 
 [node name="Clocks" type="Node"]
 
@@ -10,3 +11,6 @@ stream = ExtResource("1_wlfo1")
 
 [node name="15s" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lehf3")
+
+[node name="10s" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lehf3")
