@@ -58,7 +58,7 @@ func _on_button_3_mouse_entered() -> void:
 
 func _on_timer_button_1_timeout() -> void:
 	Global.GAME_CONTROLLER.change_scene("res://Menu/main_menu.tscn")
-	Global.GAME_CONTROLLER.change_scene("res://Game/game.tscn", {"nb_player": game.nb_players})
+	Global.GAME_CONTROLLER.change_scene("res://Game/game.tscn", {"nb_player": game.nb_players, "time": game.game_time})
 
 
 func _on_timer_button_2_timeout() -> void:
