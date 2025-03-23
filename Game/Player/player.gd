@@ -118,6 +118,8 @@ func get_highest_bread() -> float:
 
 func update_score():
 	if len(bread_list.get_children()) > 2:
+		if score_bonus > 5:
+			score_bonus = 5
 		self.score = max(0,(get_highest_bread() + temp_patch_coord) * 10) + score_bonus
 		self.score_label.text = str(int(self.score))
 	else:

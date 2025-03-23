@@ -14,7 +14,7 @@ class_name Game
 @onready var timer_scale : float = 0;
 @onready var timer_rotate = 0;
 
-@export var power_up_times: Array[float] = [1,5,20]
+@export var power_up_times: Array[float] = [5,20,40,60,80,100,110,120,130,140,150,160,170,180,200,255,398,1000]
 
 @onready var available_powers = ["size_up","jelly"]
 
