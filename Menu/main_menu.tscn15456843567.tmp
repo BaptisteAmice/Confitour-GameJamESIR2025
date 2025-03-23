@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://eoduuo6ntfvd"]
+[gd_scene load_steps=10 format=3 uid="uid://eoduuo6ntfvd"]
 
 [ext_resource type="Script" uid="uid://ckbkqgx5v7o2w" path="res://Menu/main_menu.gd" id="1_sla5p"]
 [ext_resource type="Theme" uid="uid://b1oicgscseky1" path="res://Menu/font/menu.tres" id="2_cn2sd"]
@@ -7,12 +7,8 @@
 [ext_resource type="Theme" uid="uid://bmvhvxfp0omu6" path="res://Menu/keybinding setting/soundTrack_theme/slider_theme.tres" id="4_rw3mj"]
 [ext_resource type="FontFile" uid="uid://3khe0adpu3ff" path="res://Assets/mania.ttf" id="5_cn2sd"]
 [ext_resource type="Texture2D" uid="uid://bblmvwk0drqb7" path="res://Assets/menu_image/menu_background_image.png" id="5_fw3rq"]
-
-[sub_resource type="GDScript" id="GDScript_cn2sd"]
-script/source = "extends RichTextLabel
-
-	
-"
+[ext_resource type="Script" uid="uid://3kv11qa8lmnu" path="res://Menu/title.gd" id="6_vv7ca"]
+[ext_resource type="Script" uid="uid://cbme16c4kmm25" path="res://Menu/rainbow_title.gd" id="9_218iu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -82,6 +78,7 @@ theme_override_fonts/font = ExtResource("5_cn2sd")
 text = "2"
 
 [node name="Title" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -94,7 +91,7 @@ grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("5_cn2sd")
 theme_override_font_sizes/normal_font_size = 100
 text = "Confitour"
-script = SubResource("GDScript_cn2sd")
+script = ExtResource("6_vv7ca")
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 1
@@ -160,6 +157,10 @@ offset_right = 1153.0
 offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("5_cn2sd")
 text = "Quit"
+
+[node name="RainbowTitle" type="Node2D" parent="."]
+position = Vector2(569, 322)
+script = ExtResource("9_218iu")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]

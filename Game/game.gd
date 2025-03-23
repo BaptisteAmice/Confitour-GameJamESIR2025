@@ -30,6 +30,11 @@ func _ready() -> void:
 	timer_label.text = str(int(game_timer.time_left))
 	
 	timer_label.position = $MainCamera.position + Vector2(0, 300) - timer_label.size/2
+	$end_control.visible=false
+	$end_control/ColorRect/Player.visible=false
+	$end_control/ColorRect/Player2.visible=false
+	$end_control/ColorRect/Player3.visible=false
+	$end_control/ColorRect/Player4.visible=false
 
 
 func _on_game_timer_timeout() -> void:
@@ -37,6 +42,16 @@ func _on_game_timer_timeout() -> void:
 	print("winner is player ", str(max_scoring_player_number))
 	var winners_list = winners.get_children()
 	winners_list[max_scoring_player_number-1].play()
+	
+	if (max_scoring_player_number==1):
+		$end_control/ColorRect/Player.visible=true
+	elif (max_scoring_player_number==2):
+		$end_control/ColorRect/Player2.visible=true
+	elif (max_scoring_player_number==3):
+		$end_control/ColorRect/Player3.visible=true
+	elif (max_scoring_player_number==4):
+		$end_control/ColorRect/Player4.visible=true
+	$end_control.visible=true
 	
 
 func get_max_scoring_player_number():

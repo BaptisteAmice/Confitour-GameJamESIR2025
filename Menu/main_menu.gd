@@ -11,6 +11,7 @@ const corection = preload("res://Menu/font/MENU_pourrie.tres")
 const theme_pour_clique = preload("res://Menu/font/theme_clique.tres")
 
 func _ready() -> void:
+	Global.players = []
 	nbp_layer_h_slider.value = base_nb_player_number
 	var soundtracks = Global.GAME_CONTROLLER.soundtracks.get_children()
 	soundtracks[0].play()
@@ -62,3 +63,7 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_2_mouse_entered() -> void:
 	$Button2.grab_focus() # Replace with function body.
+
+
+func _on_exit_button_button_down() -> void:
+	get_tree().quit()
