@@ -60,5 +60,6 @@ shape = SubResource("ConvexPolygonShape3D_fugfy")
 
 [node name="Jelly_squoosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_14bhr")
+bus = &"SFX"
 
 [connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

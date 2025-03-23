@@ -8,9 +8,12 @@
 
 [node name="30s" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_wlfo1")
+bus = &"SFX"
 
 [node name="15s" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lehf3")
+bus = &"SFX"
 
 [node name="10s" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lehf3")
+bus = &"SFX"

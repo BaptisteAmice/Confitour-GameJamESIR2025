@@ -31,15 +31,19 @@ stream = ExtResource("5_8ort0")
 
 [node name="Jelly1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vc8is")
-volume_db = -10.0
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="Jelly2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_uoah7")
-volume_db = -10.0
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="Moving_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_hk5v0")
+bus = &"SFX"
 
 [node name="Chute" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_vc8is")
 volume_db = -15.0
+bus = &"SFX"
