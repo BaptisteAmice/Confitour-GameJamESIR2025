@@ -23,6 +23,7 @@ Global="*res://GameController/global.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://dbfdwqmr5t17q"
 
