@@ -6,7 +6,7 @@ class_name Brioche
 @onready var collision_shape_3d: CollisionShape3D = $RigidBody3D/CollisionShape3D	
 
 # Threshold value for detecting if the object is falling
-@export var fall_threshold: float = -1.0
+@export var fall_threshold: float = -2.0
 
 @onready var accounted_in_scoring = false
 

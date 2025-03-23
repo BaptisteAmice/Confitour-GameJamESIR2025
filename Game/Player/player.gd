@@ -108,15 +108,15 @@ func use_current_power_up():
 func get_highest_bread() -> float:
 	var max_y: float = -INF
 	for node in bread_list.get_children():
-		if node is Brioche and node.to_account_in_scoring() :
+		if node.to_account_in_scoring() :
 			# Access the y position from the node's transform.origin
-			if node.transform.origin.y > max_y:
+			if node.rigid_body_3d.transform.origin.y > max_y:
 				max_y = node.rigid_body_3d.transform.origin.y  # Update the max_y if a higher y is found
 	return max_y
 
 func update_score():
 	if len(bread_list.get_children()) > 2:
-		self.score = (get_highest_bread() + temp_patch_coord) * 10
+		self.score = max(0,(get_highest_bread() + temp_patch_coord) * 10)
 		self.score_label.text = str(int(self.score))
 	else:
 		self.score = 0
