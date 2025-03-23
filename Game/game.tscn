@@ -52,7 +52,6 @@ texture = ExtResource("3_7raqb")
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-autostart = true
 
 [node name="SecondsTimer" type="Timer" parent="."]
 autostart = true

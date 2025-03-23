@@ -10,7 +10,7 @@ class_name Game
 @onready var clocks: Node = $Clocks
 @onready var clockplayed : int = 0
 
-@onready var pred_game_timer: int = int(game_timer.time_left)
+@onready var pred_game_timer: int
 @onready var timer_scale : float = 0;
 @onready var timer_rotate = 0;
 
@@ -18,11 +18,19 @@ class_name Game
 
 @onready var available_powers = ["size_up","jelly"]
 
+var game_time: int
+
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
+		game_time = params["time"]
 		
 func _ready() -> void:
+	game_timer.set_wait_time(game_time)
+	print(game_timer.get_wait_time())
+	pred_game_timer = int(game_timer.time_left)
+	game_timer.start()
+	
 	var soundtracks = Global.GAME_CONTROLLER.soundtracks.get_children()
 	soundtracks[0].stop()
 	soundtracks[1].play()
