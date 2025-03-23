@@ -12,6 +12,8 @@ class_name Player
 @onready var item_path_3d: ItemPath3D = $ItemPath3D
 @onready var bread_list: Node3D = $BreadList
 
+@onready var score_bonus: int = 0
+
 @onready var temp_patch_coord: float = 2.8
 @onready var score: float = 0
 
@@ -116,7 +118,7 @@ func get_highest_bread() -> float:
 
 func update_score():
 	if len(bread_list.get_children()) > 2:
-		self.score = max(0,(get_highest_bread() + temp_patch_coord) * 10)
+		self.score = max(0,(get_highest_bread() + temp_patch_coord) * 10) + score_bonus
 		self.score_label.text = str(int(self.score))
 	else:
 		self.score = 0

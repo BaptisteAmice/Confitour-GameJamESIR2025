@@ -48,6 +48,9 @@ func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
 	var new_object
 
 	if node is BriocheConfiture:
+		player.score_bonus += 1
+		player.update_score()
+		player.update_displayed_score()
 		new_object = BRIOCHE_CONFITURE.instantiate()
 		var rand_num = randi() % 10 + 1
 		if rand_num > 5:
