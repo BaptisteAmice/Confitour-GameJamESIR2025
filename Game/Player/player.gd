@@ -25,11 +25,15 @@ const CHANCE_BRIOCHE_CONFITURE = 0.2  # 20% de chance pour Brioche Confiture
 @onready var score_scale : float = 3;
 @onready var score_rotate = 0;
 @onready var pred_score : int = score;
+@onready var available_path= ["res://Game/Path/path_I.tres", "res://Game/Path/path_X.tres","res://Game/Path/path_8.tres"]
+@onready var path_for_game
 
 
 func _ready(): 
 	Global.players.push_front(self)
 	update_score()
+	self.path_for_game = Select_random_path();
+	$ItemPath3D.curve=load(path_for_game)
 		
 	var current_player_number = Global.players.size()
 	player_number = current_player_number
@@ -130,5 +134,10 @@ func update_displayed_score() -> void:
 	self.score_label.scale = Vector2(score_scale, score_scale);
 	self.score_label.rotation = score_rotate
 
+func Select_random_path():
+	var random_index = randi() % available_path.size()
+	# Get the random value from the array
+	var random_value = available_path[random_index]
+	return random_value
 	
 	

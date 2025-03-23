@@ -13,6 +13,8 @@ config_version=5
 config/name="Confitour"
 run/main_scene="uid://dsqm0ivt8os0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://d3rbt3lxq30sy"
 config/icon="uid://4yxp2jwvcq1a"
 
 [autoload]
