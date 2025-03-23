@@ -19,7 +19,7 @@ class_name Player
 const BRIOCHE_CONFITURE = preload("res://Game/Bodies/Brioche_confiture.tscn")
 const BRIOCHE = preload("res://Game/Brioche.tscn")
 
-const CHANCE_BRIOCHE_CONFITURE = 0.7  # 70% de chance pour Brioche Confiture
+const CHANCE_BRIOCHE_CONFITURE = 0.2  # 70% de chance pour Brioche Confiture
 
 @onready var score_scale : float = 3;
 @onready var score_rotate = 0;

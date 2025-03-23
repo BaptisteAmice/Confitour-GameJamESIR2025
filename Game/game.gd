@@ -14,6 +14,8 @@ class_name Game
 @onready var timer_scale : float = 0;
 @onready var timer_rotate = 0;
 
+@export var power_up_times: Array[float] = [1,5,20]
+
 func _init_params(params: Dictionary) -> void:
 	if params.has("nb_player"):
 		nb_players = params["nb_player"]
@@ -62,9 +64,11 @@ func _process(delta: float) -> void:
 		
 	update_displayed_game_timer()
 		
-
-
-	
+func try_to_use_power():
+	#if len(power_up_times) > 0 and game_timer. > power_up_times[0]:
+	pass
+		
+		
 
 func update_displayed_game_timer() -> void:
 	if pred_game_timer != int(game_timer.time_left):
