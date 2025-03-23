@@ -11,11 +11,11 @@ const theme_pour_clique = preload("res://Menu/font/theme_clique.tres")
 
 func _ready() -> void:
 	if(game.nb_players==2):
-		self.global_position = main_camera.global_position/game.nb_players
+		self.global_position = (main_camera.global_position/game.nb_players)+ Vector2(0,50)
 	if (game.nb_players==3):
-		self.global_position= main_camera.global_position
+		self.global_position= (main_camera.global_position) + Vector2(0,50)
 	if(game.nb_players == 4):
-			self.global_position= main_camera.global_position + main_camera.global_position/2
+			self.global_position= (main_camera.global_position + main_camera.global_position/2)+ Vector2(0,50)
 func _on_button_button_down() -> void:
 	$Button.theme=theme_pour_clique
 	$Button/Timer_button1.start()
