@@ -11,6 +11,9 @@ class_name ItemPath3D
 @onready var play_anim = false
 @onready var poele: Node3D = $PathFollow3D/Poele
 
+@onready var jelly_1: AudioStreamPlayer = $"../AudioController/Jelly1"
+@onready var jelly_2: AudioStreamPlayer = $"../AudioController/Jelly2"
+
 
 const BRIOCHE = preload("res://Game/Brioche.tscn")
 const BRIOCHE_CONFITURE = preload("res://Game/Bodies/Brioche_confiture.tscn")
@@ -46,6 +49,11 @@ func instantiate_brioche_at_follow_point(node: Brioche, new_parent: Node):
 
 	if node is BriocheConfiture:
 		new_object = BRIOCHE_CONFITURE.instantiate()
+		var rand_num = randi() % 10 + 1
+		if rand_num > 5:
+			jelly_1.play()
+		else:
+			jelly_2.play()
 	elif node is Brioche:
 		new_object = BRIOCHE.instantiate()
 	else:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpqn7pt1r8r80"]
+[gd_scene load_steps=9 format=3 uid="uid://cpqn7pt1r8r80"]
 
 [ext_resource type="AudioStream" uid="uid://vu6dngrmat7o" path="res://Assets/Sounds/Sound_effects/chute.wav" id="1_vc8is"]
 [ext_resource type="AudioStream" uid="uid://dm0rhtfeoe16e" path="res://Assets/Sounds/Sound_effects/Génial.wav" id="2_h254l"]
 [ext_resource type="AudioStream" uid="uid://bbxsko15wcell" path="res://Assets/Sounds/Sound_effects/Peanuted1.wav" id="3_ioynf"]
 [ext_resource type="AudioStream" uid="uid://yveleyhe0vma" path="res://Assets/Sounds/Sound_effects/Peanuted2.wav" id="4_0kuhb"]
 [ext_resource type="AudioStream" uid="uid://clavlcdgjq0q8" path="res://Assets/Sounds/Sound_effects/Toast_grillé.wav" id="5_8ort0"]
+[ext_resource type="AudioStream" uid="uid://dljikglh7dirf" path="res://Assets/Sounds/Sound_effects/J_adore_confiture.wav" id="6_vc8is"]
 [ext_resource type="AudioStream" uid="uid://utv2i7l5oabm" path="res://Assets/Sounds/Sound_effects/Confiture_power_up1.wav" id="7_uoah7"]
 [ext_resource type="AudioStream" uid="uid://r0povhor0jca" path="res://Assets/Sounds/Sound_effects/moving_sound.wav" id="8_hk5v0"]
 
@@ -29,12 +30,16 @@ stream = ExtResource("4_0kuhb")
 stream = ExtResource("5_8ort0")
 
 [node name="Jelly1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vc8is")
+volume_db = -10.0
 
 [node name="Jelly2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_uoah7")
+volume_db = -10.0
 
 [node name="Moving_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_hk5v0")
 
 [node name="Chute" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_vc8is")
+volume_db = -15.0

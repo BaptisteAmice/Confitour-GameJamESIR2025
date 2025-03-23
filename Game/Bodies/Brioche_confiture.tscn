@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg1b31jwhcxk"]
+[gd_scene load_steps=12 format=3 uid="uid://dg1b31jwhcxk"]
 
 [ext_resource type="Script" uid="uid://do60jbqn78lkb" path="res://Game/Bodies/brioche_confiture.gd" id="1_dgtc6"]
 [ext_resource type="ArrayMesh" uid="uid://blsl4gfgjvjak" path="res://Assets/confiture.obj" id="2_fugfy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s5vop7inuw25" path="res://Assets/Textures/mie.png" id="4_ceda4"]
 [ext_resource type="PackedScene" path="res://Assets/Particles/jelly_fall.tscn" id="5_b2v2q"]
 [ext_resource type="PackedScene" uid="uid://h8eau5mcaye0" path="res://Assets/Particles/jelly_impact.tscn" id="5_ceda4"]
+[ext_resource type="AudioStream" uid="uid://rdygbxqnnt7b" path="res://Assets/Sounds/Sound_effects/jelly_sploosh.wav" id="7_14bhr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fugfy"]
 size = Vector3(0.6, 0.05, 0.55)
@@ -56,5 +57,8 @@ shape = SubResource("ConvexPolygonShape3D_fugfy")
 [node name="Jelly_Impact" parent="RigidBody3D/Area3D" instance=ExtResource("5_ceda4")]
 
 [node name="Jelly_fall" parent="RigidBody3D" instance=ExtResource("5_b2v2q")]
+
+[node name="Jelly_squoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_14bhr")
 
 [connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
