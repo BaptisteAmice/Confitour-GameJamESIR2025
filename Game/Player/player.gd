@@ -30,8 +30,12 @@ const CHANCE_BRIOCHE_CONFITURE = 0.2  # 20% de chance pour Brioche Confiture
 @onready var available_path= ["res://Game/Path/path_I.tres", "res://Game/Path/path_X.tres","res://Game/Path/path_8.tres"]
 @onready var path_for_game
 
+@onready var camera_3d: Camera3D = $Camera3D
+
 
 func _ready(): 
+	camera_3d.position = Vector3(0, 4.7, -3.4)
+	camera_3d.rotation = Vector3(deg_to_rad(-36), deg_to_rad(180), 0)
 	Global.players.push_front(self)
 	update_score()
 	self.path_for_game = Select_random_path();
@@ -143,5 +147,11 @@ func Select_random_path():
 	# Get the random value from the array
 	var random_value = available_path[random_index]
 	return random_value
+	
+func move_camera_smooth():
+	var tween = create_tween()
+	tween.tween_property(camera_3d, "position", Vector3(0, 1.7, -3.5), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(camera_3d, "rotation", Vector3(deg_to_rad(11), deg_to_rad(180), 0), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 	
 	

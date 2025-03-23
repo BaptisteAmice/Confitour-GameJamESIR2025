@@ -60,6 +60,14 @@ func _on_game_timer_timeout() -> void:
 	var winners_list = winners.get_children()
 	winners_list[max_scoring_player_number-1].play()
 	
+	for player in Global.players:
+		var camera_node = player.get_node_or_null("Camera3D")  # Assure-toi que le chemin est bon
+		if camera_node:
+			player.move_camera_smooth()  # Déplace la caméra pour montrer la tour du gagnant
+		else:
+			print("error")
+			break
+	
 	if (max_scoring_player_number==1):
 		$end_control/ColorRect/Player.visible=true
 	elif (max_scoring_player_number==2):
