@@ -21,10 +21,9 @@ script = ExtResource("1_cdk31")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.13)
 shape = SubResource("BoxShape3D_64r20")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.025, 0.025)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.025, -0.105)
 mesh = ExtResource("2_vd0a1")
-skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_jv251")
 
 [node name="WaitBeforeScoring" type="Timer" parent="."]

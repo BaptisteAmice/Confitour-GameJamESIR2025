@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyfl14l7l3xye"]
+[gd_scene load_steps=4 format=3 uid="uid://dyfl14l7l3xye"]
 
 [ext_resource type="Script" uid="uid://dimam2nar814n" path="res://Game/Player/path_3d.gd" id="1_emjco"]
 [ext_resource type="PackedScene" uid="uid://dm1m1x1y22jrk" path="res://Game/Brioche.tscn" id="2_emjco"]
+[ext_resource type="PackedScene" uid="uid://tkt6ili1tesx" path="res://Game/Bodies/Poele.tscn" id="3_afsjt"]
 
 [node name="ItemPath3D" type="Path3D"]
 script = ExtResource("1_emjco")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 transform = Transform3D(-0.707059, 0.00624939, -0.707031, -2.32815e-10, 0.999903, 0.00883789, 0.707059, 0.00624939, -0.707031, 0, 0.005, 0)
+
+[node name="Poele" parent="PathFollow3D" instance=ExtResource("3_afsjt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.07, -3.27418e-11)
 
 [node name="Brioche" parent="PathFollow3D" instance=ExtResource("2_emjco")]
 collision_disabled = true
